@@ -39,9 +39,11 @@ defmodule Heaters.MixProject do
       {:shoehorn, "~> 0.4"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
+      {:plug_cowboy, "~> 2.0"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
+      {:nerves_network, "~> 0.5", targets: @all_targets},
 
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.5", runtime: false, targets: :rpi},
@@ -50,6 +52,11 @@ defmodule Heaters.MixProject do
       {:nerves_system_rpi3, "~> 1.5", runtime: false, targets: :rpi3},
       {:nerves_system_bbb, "~> 2.0", runtime: false, targets: :bbb},
       {:nerves_system_x86_64, "~> 1.5", runtime: false, targets: :x86_64},
+      {:hazel_rpi, path: "../hazel_rpi", runtime: false, targets: :hazel_rpi},
     ]
   end
+
+  # def system("hazel_rpi") do
+  #   [{:hazel_rpi, path: "../hazel_rpi", runtime: false}]
+  # end
 end

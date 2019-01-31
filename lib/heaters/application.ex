@@ -18,7 +18,8 @@ defmodule Heaters.Application do
   def children(:host) do
     [
       # Starts a worker by calling: Heaters.Worker.start_link(arg)
-      # {Heaters.Worker, arg},
+      {Plug.Cowboy, scheme: :http, plug: Heaters.Router, options: []},
+      Heaters.State,
     ]
   end
 

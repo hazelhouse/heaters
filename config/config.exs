@@ -15,7 +15,7 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # involved with firmware updates.
 
 config :shoehorn,
-  init: [:nerves_runtime],
+  init: [:nerves_runtime, :nerves_network],
   app: Mix.Project.config()[:app]
 
 # Use Ringlogger as the logger backend and remove :console.
@@ -28,4 +28,4 @@ config :logger, backends: [RingLogger]
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
-# import_config "#{Mix.target()}.exs"
+import_config "#{Mix.target()}.exs"
