@@ -1,7 +1,7 @@
 defmodule Heaters.MixProject do
   use Mix.Project
 
-  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :bbb, :x86_64]
+  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :bbb, :x86_64, :hazel_rpi]
 
   def project do
     [
