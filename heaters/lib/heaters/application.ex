@@ -18,15 +18,22 @@ defmodule Heaters.Application do
   def children(:host) do
     [
       # Starts a worker by calling: Heaters.Worker.start_link(arg)
-      {Plug.Cowboy, scheme: :http, plug: Heaters.Router, options: []},
-      Heaters.State,
-    ]
+      # {Heaters.Worker, arg},
+    ] ++ all_children()
   end
 
   def children(_target) do
     [
       # Starts a worker by calling: Heaters.Worker.start_link(arg)
       # {Heaters.Worker, arg},
+    ] ++ all_children()
+  end
+
+  # These child processes should be supervised regardless of the target.
+  def all_children do
+    [
+      {Plug.Cowboy, scheme: :http, plug: Heaters.Router, options: []},
+      Heaters.State,
     ]
   end
 end
