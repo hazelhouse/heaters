@@ -25,6 +25,12 @@ defmodule Heaters.Router do
     |> send_resp(200, "")
   end
 
+  get "/debug" do
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, Jason.encode!(Heaters.Debug.info()))
+  end
+
   plug :match
   plug :dispatch
 end

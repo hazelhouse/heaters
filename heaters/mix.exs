@@ -40,6 +40,8 @@ defmodule Heaters.MixProject do
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
       {:plug_cowboy, "~> 2.0"},
+      {:libcluster, "~> 3.0"},
+      {:jason, "~> 1.1"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
@@ -55,8 +57,4 @@ defmodule Heaters.MixProject do
       {:hazel_rpi, path: "../hazel_rpi", runtime: false, targets: :hazel_rpi},
     ]
   end
-
-  # def system("hazel_rpi") do
-  #   [{:hazel_rpi, path: "../hazel_rpi", runtime: false}]
-  # end
 end
